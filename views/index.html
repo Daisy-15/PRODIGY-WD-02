@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Stopwatch</title>
+    <link href="../public/css/input.css" rel="stylesheet" type="text/css">
+    <link href="../public/css/output.css" rel="stylesheet" type="text/css">
+
+</head>
+
+<body class="bg-gray-100 text-gray-900 dark:bg-gray-950 dark:text-white">
+
+    <!-- Navbar -->
+    <nav class="bg-blue-500 dark:bg-gray-800 p-6">
+        <div class="container mx-auto flex justify-between">
+            <h1 class="text-white text-xl">Stopwatch App</h1>
+            <div>
+                <button id="dark-mode-toggle" class="text-white">Dark Mode</button>
+                <button id="settings" class="ml-4 text-white">Settings</button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Stopwatch Display -->
+    <div class="container mx-auto mt-12 text-center">
+        <!-- Time display element -->
+        <div id="time-display" class="flex items-center justify-center text-5xl font-bold">
+            <span id="hours" class="mr-1">00</span>:
+            <span id="minutes" class="mr-1">00</span>:
+            <span id="seconds" class="mr-1">00</span>
+            <span id="milliseconds" class="text-xl text-gray-500 items-end pt-3">000</span>
+            <!-- Smaller font size and subscript for milliseconds -->
+        </div>
+
+        <div class="mt-4">
+            <button id="start-btn" class="bg-green-500 text-white px-4 py-2 rounded">Start</button>
+            <button id="reset-btn" class="bg-orange-500 text-white px-4 py-2 rounded">Reset</button>
+
+            <!-- These buttons will be hidden initially -->
+            <button id="lap-btn" class="hidden bg-blue-500 text-white px-4 py-2 rounded">Lap</button>
+            <button id="stop-btn" class="hidden bg-red-500 text-white px-4 py-2 rounded">Stop</button>
+        </div>
+
+
+
+        <!-- Lap Table -->
+        <div id="lap-table-container"
+            class="mt-8 max-h-60 max-w-md mx-auto overflow-auto border-2 border-gray-700 text-gray-900">
+            <table id="lap-table"
+                class="table-auto w-full bg-gray-100 dark:bg-gray-700 border !relative border-blue-500 dark:border-white">
+                <thead class="bg-gray-300 dark:bg-gray-700 border-2 border-black dark:border-white dark:text-white">
+                    <tr>
+                        <th class="px-4 py-2 border border-black dark:border-white">Lap Number</th>
+                        <th class="px-4 py-2 border border-black dark:border-white">Lap Time</th>
+                    </tr>
+                </thead>
+                <tbody id="laps" class="dark:text-white"></tbody>
+            </table>
+        </div>
+    </div>
+
+    <!-- Settings Modal -->
+    <div id="settings-modal" class="hidden fixed inset-0 bg-gray-800 bg-opacity-75">
+        <div class="bg-white dark:bg-gray-700 p-4 rounded-lg text-left mx-auto mt-24 w-1/3">
+            <h3 class="text-xl mb-4">Settings</h3>
+            <div class="mb-4">
+                <label>Time Color</label>
+                <input type="color" id="time-color" class="ml-2">
+            </div>
+            <div class="mb-4">
+                <label>Time Format</label>
+                <select id="time-format" class="ml-2">
+                    <option value="hh:mm:ss.ms">hh:mm:ss.ms</option>
+                    <option value="hh:mm:ss">hh:mm:ss</option>
+                    <option value="mm:ss">mm:ss</option>
+                </select>
+            </div>
+            <div class="mb-4">
+                <label>Digital Font</label>
+                <input type="checkbox" id="digital-font-toggle">
+            </div>
+            <button id="close-settings" class="bg-gray-500 text-white px-4 py-2 rounded">Close</button>
+        </div>
+    </div>
+
+
+    <script src="../public/js/script.js"></script>
+</body>
+
+</html>
