@@ -6,7 +6,7 @@
 /build/
 
 # Tailwind CSS output (you can keep this if you generate it before pushing)
-# /public/css/output.css
+/public/css/output.css
 
 # OS generated files
 .DS_Store
